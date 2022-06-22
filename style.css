@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Sura:wght@400;700&display=swap");
+
+:root {
+  --src: url(https://images.unsplash.com/photo-1554620121-59e7f3f6e3a4?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy);
+  --size: 60vmin;
+  --space: 8vmin;
+  --duration: 300ms;
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --bounce-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  display: grid;
+  place-items: center;
+  grid-gap: var(--space);
+  margin: 0 auto;
+  padding: var(--space);
+  font-family: "Sura", sans-serif;
+  color: white;
+  background-color: rgb(29, 30, 34);
+}
+
+
+.promo {
+  position: relative;
+  cursor: pointer;
+  width: var(--size);
+  height: var(--size);
+}
+
+.title {
+  --font-size: calc(var(--size) / 8);
+
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: var(--font-size);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transform: translate(-10%, -50%);
+  transition: transform var(--duration) var(--ease-out);
+  pointer-events: none;
+}
+
+.title::after {
+  content: attr(data-cta);
+  display: inline-block;
+  margin-left: 1.5vmin;
+  font-size: calc(var(--font-size) / 3.25);
+  font-weight: 400;
+  letter-spacing: 0.125vmin;
+  opacity: 0;
+  transform: translateX(-25%);
+  transition: transform var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
+}
+
+.image-wrapper {
+  width: var(--size);
+  height: var(--size);
+  
+  overflow: hidden;
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 0 50%, 0% 0%);
+  transition: transform var(--duration) var(--ease-out),
+    clip-path var(--duration) var(--ease-out);
+}
+
+.image-wrapper img {
+  position: relative;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  
+  transform: translateX(-10%);
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transform: translateZ(0);
+  transition: opacity var(--duration) var(--ease-out);
+}
+
+.promo:hover img {
+  transform: translateX(0);
+  
+}
+
+.promo:hover .image-wrapper {
+
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  transform: translateX(25%);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .title {
+  transform: translate(5%, -50%);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .title::after {
+  opacity: 1;
+  transform: translateX(0);
+  transition-timing-function: var(--bounce-out);
+}
+
+.promo:hover .image-wrapper::after {
+  opacity: 1;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+
+.yell{
+
+
+  width: 60vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+
+
+.black-lives-matter {
+  font-size: 8vw;
+  line-height: 8vw;
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 900;
+  background: url(nightview.jpg);
+  background-size: 40%;
+  background-position: 50% 50%;
+  -webkit-background-clip: text;
+  color: rgba(0,0,0,0.08);
+  animation: zoomout 10s ease 500ms forwards;
+}
+
+@keyframes zoomout {
+  from {
+    background-size: 40%;
+  }
+  to {
+    background-size: 10%;
+  }
+}
+
+
+
+
+.project{
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 45vh;
+
+
+      
+      
+      
+}  
+
+.project a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 24px;
+}
+
+.project p{
+    font-weight: 700;
+    text-align: center;
+    font-size: 40px;
+    font-family: Hack, sans-serif;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #000, #fff, #000);
+    letter-spacing: 5px;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: shine 5s linear infinite;
+    position: relative;
+}
+  
+
+@keyframes shine {
+    0% {
+      background-position-x: -500%;
+    }
+    100% {
+      background-position-x: 500%;
+    }
+  }
+
+.possible{
+        
+      
+        color: #484848;
+        font-size: 50px;
+        font-weight: bold;
+        font-family: monospace;
+        letter-spacing: 7px;
+        cursor: pointer
+      
+
+
+}
+
+.possible span{
+    transition: .5s linear
+  }
+.possible:hover span:nth-child(1){
+    margin-right: 5px
+  }
+.possible:hover span:nth-child(1):after{
+    content: "'";
+  }
+.possible:hover span:nth-child(2){
+    margin-left: 30px
+  }
+
+.possible:hover span{
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 40px #fff;
+  }
+
+
+  
